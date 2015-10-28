@@ -11,9 +11,9 @@ class Rdiff
 
   def initialize(args, template = RdiffDefaultTemplate )
     @args = args
+    parse_options!
     @diffs = Diff::LCS.sdiff(*get_data_from_files)
     @template = template.new(@diffs)
-    parse_options!
   end
 
   def parse_options!
